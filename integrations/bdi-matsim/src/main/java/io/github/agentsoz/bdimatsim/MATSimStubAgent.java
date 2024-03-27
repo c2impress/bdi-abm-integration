@@ -36,6 +36,7 @@ final class MATSimStubAgent implements MobsimDriverAgent{
 	private Id<Link> currentLinkId;
 	private Id<Person> agentId;
 	private MobsimVehicle vehicle;
+
 	
 	MATSimStubAgent(Id<Link> link, Id<Person> agent, MobsimVehicle vehicle){
 		this.vehicle = vehicle;

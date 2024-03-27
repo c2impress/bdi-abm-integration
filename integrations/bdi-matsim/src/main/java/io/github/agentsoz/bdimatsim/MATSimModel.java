@@ -17,9 +17,7 @@ import org.matsim.api.core.v01.Coord;
 import org.matsim.api.core.v01.Id;
 import org.matsim.api.core.v01.Scenario;
 import org.matsim.api.core.v01.network.Link;
-import org.matsim.api.core.v01.population.Activity;
-import org.matsim.api.core.v01.population.Person;
-import org.matsim.api.core.v01.population.Plan;
+import org.matsim.api.core.v01.population.*;
 import org.matsim.core.api.experimental.events.EventsManager;
 import org.matsim.core.config.Config;
 import org.matsim.core.config.ConfigUtils;
@@ -137,7 +135,7 @@ public final class MATSimModel implements ABMServerInterface, ModelInterface, Qu
 	private final Map<String, DataClient> dataListeners = createDataListeners();
 	private AgentDataContainer adc = new AgentDataContainer();
 
-	public enum RoutingMode {carFreespeed, carGlobalInformation}
+	public enum RoutingMode {carFreespeed, carGlobalInformation, sOneFree, sTwoFree, sThreeFree, sFourFree, sFiveFree, sSixFree, sSevenFree, sOneGlobal, sTwoGlobal, sThreeGlobal, sFourGlobal, sFiveGlobal, sSixGlobal, sSevenGlobal}
 
 	private Controler controller;
 
@@ -151,9 +149,9 @@ public final class MATSimModel implements ABMServerInterface, ModelInterface, Qu
 		// yyyy this is so far NOT the same as what is was originally, see below, since the code below
 		// could pass "null" which the new code cannot.  (However, the "null" was not really handled
 		// correctly in the receiving code so it needs to be repaired ...).  kai, nov'18
-		
+
 //		this(opts.get(eConfigFile), opts.get(eOutputDir), opts.get(eGlobalStartHhMm));
-		
+
 		registerDataServer(dataServer);
 
 		if (opts == null) {
@@ -283,11 +281,58 @@ public final class MATSimModel implements ABMServerInterface, ModelInterface, Qu
 					ActionList.REPLAN_CURRENT_DRIVETO, new ActionHandlerForReplanDriveto(this) );
 			agentManager.getAgent(agentId).getActionHandler().registerBDIAction(
 					ActionList.PERCEIVE, new ActionHandlerForPerceive(this));
+
+			agentManager.getAgent(agentId).getActionHandler().registerBDIAction(
+					ActionList.WALKTO1, new ActionHandlerForWalkto1(this) );
+			agentManager.getAgent(agentId).getActionHandler().registerBDIAction(
+					ActionList.REPLAN_CURRENT_WALKTO1, new ActionHandlerForReplanWalkto1(this) );
+			agentManager.getAgent(agentId).getActionHandler().registerBDIAction(
+					ActionList.PERCEIVE_WALKTO1, new ActionHandlerForPerceiveWalkto1(this));
 		}
 		{
 			// New default activity types
 			{
 				ActivityParams params = new ActivityParams("DriveTo");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+			{
+				ActivityParams params = new ActivityParams("WalkTo1");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+
+			{
+				ActivityParams params = new ActivityParams("WalkTo2");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+
+			{
+				ActivityParams params = new ActivityParams("WalkTo3");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+
+			{
+				ActivityParams params = new ActivityParams("WalkTo4");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+
+			{
+				ActivityParams params = new ActivityParams("WalkTo5");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+
+			{
+				ActivityParams params = new ActivityParams("WalkTo6");
+				params.setScoringThisActivityAtAll(false);
+				scenario.getConfig().planCalcScore().addActivityParams(params);
+			}
+			{
+				ActivityParams params = new ActivityParams("WalkTo7");
 				params.setScoringThisActivityAtAll(false);
 				scenario.getConfig().planCalcScore().addActivityParams(params);
 			}

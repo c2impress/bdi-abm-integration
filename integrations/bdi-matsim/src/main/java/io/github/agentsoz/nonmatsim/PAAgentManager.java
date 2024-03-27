@@ -51,6 +51,14 @@ public final class PAAgentManager {
 	private final LinkedHashMap<String, PAAgent> agentsWithPerceptsAndActions;
 
 	private final Map<String, String> agentsPerformingBdiDriveTo;
+
+	private final Map<String, String> agentsPerformingBdiWalkTo1;
+	private final Map<String, String> agentsPerformingBdiWalkTo2;
+	private final Map<String, String> agentsPerformingBdiWalkTo3;
+	private final Map<String, String> agentsPerformingBdiWalkTo4;
+	private final Map<String, String> agentsPerformingBdiWalkTo5;
+	private final Map<String, String> agentsPerformingBdiWalkTo6;
+	private final Map<String, String> agentsPerformingBdiWalkTo7;
 	private final Map<String, Double> agentsWaitingForTimeEvent;
 
 
@@ -67,6 +75,13 @@ public final class PAAgentManager {
 		agentsWithPerceptsAndActions = new LinkedHashMap<>();
 		agentsPerformingBdiDriveTo = new HashMap<>();
 		agentsWaitingForTimeEvent = new HashMap<>();
+		agentsPerformingBdiWalkTo1 = new HashMap<>();
+		agentsPerformingBdiWalkTo2 = new HashMap<>();
+		agentsPerformingBdiWalkTo3 = new HashMap<>();
+		agentsPerformingBdiWalkTo4 = new HashMap<>();
+		agentsPerformingBdiWalkTo5 = new HashMap<>();
+		agentsPerformingBdiWalkTo6 = new HashMap<>();
+		agentsPerformingBdiWalkTo7 = new HashMap<>();
 	}
 
 	public final PAAgent getAgent(String agentID) {
@@ -74,7 +89,13 @@ public final class PAAgentManager {
 	}
 
 	public Map<String, String> getAgentsPerformingBdiDriveTo() { return agentsPerformingBdiDriveTo; }
-
+	public Map<String, String> getAgentsPerformingBdiWalkTo1() { return agentsPerformingBdiWalkTo1; }
+	public Map<String, String> getAgentsPerformingBdiWalkTo2() { return agentsPerformingBdiWalkTo2; }
+	public Map<String, String> getAgentsPerformingBdiWalkTo3() { return agentsPerformingBdiWalkTo3; }
+	public Map<String, String> getAgentsPerformingBdiWalkTo4() { return agentsPerformingBdiWalkTo4; }
+	public Map<String, String> getAgentsPerformingBdiWalkTo5() { return agentsPerformingBdiWalkTo5; }
+	public Map<String, String> getAgentsPerformingBdiWalkTo6() { return agentsPerformingBdiWalkTo6; }
+	public Map<String, String> getAgentsPerformingBdiWalkTo7() { return agentsPerformingBdiWalkTo7; }
 	public Map<String, Double> getAgentsWaitingForTimeEvent() { return agentsWaitingForTimeEvent; }
 
 
