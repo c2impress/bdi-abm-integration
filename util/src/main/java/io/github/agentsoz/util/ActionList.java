@@ -23,9 +23,31 @@ package io.github.agentsoz.util;
  */
 
 public class ActionList {
+
 	public static final String DRIVETO = "drive_to";
+	public static final String WALKTO1 = "walk_to1";
+	public static final String WALKTO2 = "walk_to2";
+	public static final String WALKTO3 = "walk_to3";
+	public static final String WALKTO4 = "walk_to4";
+	public static final String WALKTO5 = "walk_to5";
+	public static final String WALKTO6 = "walk_to6";
+	public static final String WALKTO7 = "walk_to7";
 	public static final String REPLAN_CURRENT_DRIVETO = "replan_drive_to";
+	public static final String REPLAN_CURRENT_WALKTO1 = "replan_walk_to1";
+	public static final String REPLAN_CURRENT_WALKTO2 = "replan_walk_to2";
+	public static final String REPLAN_CURRENT_WALKTO3 = "replan_walk_to3";
+	public static final String REPLAN_CURRENT_WALKTO4 = "replan_walk_to4";
+	public static final String REPLAN_CURRENT_WALKTO5 = "replan_walk_to5";
+	public static final String REPLAN_CURRENT_WALKTO6 = "replan_walk_to6";
+	public static final String REPLAN_CURRENT_WALKTO7 = "replan_walk_to7";
 	public static final String PERCEIVE = "perceive";
+	public static final String PERCEIVE_WALKTO1 = "perceive_walk_to1";
+	public static final String PERCEIVE_WALKTO2 = "perceive_walk_to2";
+	public static final String PERCEIVE_WALKTO3 = "perceive_walk_to3";
+	public static final String PERCEIVE_WALKTO4 = "perceive_walk_to4";
+	public static final String PERCEIVE_WALKTO5 = "perceive_walk_to5";
+	public static final String PERCEIVE_WALKTO6 = "perceive_walk_to6";
+	public static final String PERCEIVE_WALKTO7 = "perceive_walk_to7";
    	public static final String CONNECT_TO = "connect to";
 	public static final String PICKUP = "pick up";
 	public static final String DRIVETO_AND_PICKUP = "drive to and pick up";
